@@ -1,18 +1,23 @@
 import React from 'react';
-import { useDispatch } from 'react-redux'
-import { UserController } from './redux/features/User';
+import { useDispatch, useSelector } from 'react-redux'
+import loginRequest from './redux/features/user/loginRequest';
+import { selectUser, UserState } from './redux/features/user/UserSlice';
 
 
 function App() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<any>()
+  const userState = useSelector(state => state);
 
-
+  const handleClick = () => dispatch(loginRequest())
 
 
   return (
     <div>App
-
-      <button onClick={() => dispatch(UserController.actions.login({}))}>click to login</button>
+     
+      <button onClick={() => {
+        handleClick()
+        console.log(userState)
+      }}>click to login</button>
     </div>
   );
 }

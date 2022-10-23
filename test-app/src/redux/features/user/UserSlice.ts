@@ -1,24 +1,22 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-import User from "../../API/User";
-// import { UserClass } from "../../Types/class/UserClass";
-// import userState from '../../Types/states/userState';
+import { createSlice } from "@reduxjs/toolkit";
+import loginRequest from './loginRequest';
 
+export type UserState = {
+    status: "loading" | "idle",
+    error: string | null,
+    user: {} | null
+}
 
-const loginRequest = createAsyncThunk('loginRequest',
-    async (loginPayload) => {
-        const response = await axios.get('http://localhost:3001/exercises')
-        console.log(response);
-        return response;
-    }
-    )
+const initialState: UserState = {
+    status: "idle",
+    error: null,
+    user:null
+}
 
 export const UserController = createSlice(
     {
         name: 'User',
-        initialState: {
-            user: {}
-        },
+        initialState,
         reducers: {
             login: (state, action) => {
                 console.log('login action')
@@ -30,6 +28,7 @@ export const UserController = createSlice(
         },
         extraReducers: (builder) => {
             builder.addCase(loginRequest.fulfilled, (state, action) => {
+                console.log(action.payload)
                 state.user = action.payload
             })
         },
@@ -38,6 +37,8 @@ export const UserController = createSlice(
 );
 
 export const { login, logout } = UserController.actions;
+
 export const selectUser = (state: any) => state;
 
 export default UserController.reducer;
+
