@@ -5,20 +5,20 @@ const getAll = async () => {
     // const allExercises = await repo.getAll();
     // return allExercises;
 
-    return {string: "get all"}
+    return { string: "get all" }
 }
 
-const createExercise = async (newExercise) => {
+const login = async (loginPayload) => {
 
-    await repo.createExercise(newExercise);
-    
-    const allExercises = await repo.getAll();
-    return allExercises;
+    // const userData = await repo.login(loginPayload);
+    const userData = {data: loginPayload};
+
+    return userData;
 }
 
 
 module.exports = {
     getAll,
-    createExercise
+    login
 
 }

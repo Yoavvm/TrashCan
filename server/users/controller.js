@@ -4,18 +4,17 @@ const getAll = async (req, res) => {
 
     try {
         const allExercises = await logic.getAll();
-        res.json({allExercises});
+        res.json({ allExercises });
     } catch (error) {
         console.log(error)
         res.status(400).json({ message: 'something went wrong' });
     }
 }
 
-const createExercise = async (req, res) => {
+const login = async (req, res) => {
     try {
-        await logic.createExercise(req.body);
-        const allExercises = await logic.getAll();
-        res.json(allExercises);
+        const userData = await logic.login(req.body);
+        res.json(userData);
 
     } catch (error) {
         console.log(error)
@@ -26,5 +25,5 @@ const createExercise = async (req, res) => {
 
 module.exports = {
     getAll,
-    createExercise
+    login
 }
