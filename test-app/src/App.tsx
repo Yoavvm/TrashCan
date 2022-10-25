@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import loginRequest from './redux/features/user/loginRequest';
+import register from './redux/features/user/register';
 import { selectUser, UserState } from './redux/features/user/UserSlice';
 import { useAppDispatch } from './redux/Hooks';
 
@@ -12,6 +13,7 @@ function App() {
   const [userPassword, setUserPassword] = useState('');
 
   const handleLoginClick = () => dispatch(loginRequest({ userID, userPassword }))
+  const handleRegisterClick = () => dispatch(register({ userID, userPassword }))
 
 
   return (
@@ -26,6 +28,7 @@ function App() {
       </div>
       <div>
         <button onClick={() => {handleLoginClick()}}>click to login</button>
+        <button onClick={() => {handleRegisterClick()}}>click to login</button>
       </div>
     </div>
   );

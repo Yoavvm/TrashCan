@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 import loginRequest from './loginRequest';
+import register from './register';
 
 export type UserState = {
     status: "loading" | "idle" | "pending",
@@ -30,6 +31,10 @@ export const UserReducer = createSlice(
         extraReducers: (builder) => {
             builder.addCase(loginRequest.fulfilled, (state, action:PayloadAction<any>) => {
                 state.user = action.payload
+            })
+            builder.addCase(register.fulfilled, (state, action) => {
+                state.user = action.payload
+
             })
         },
 
