@@ -1,11 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import UserController from "./features/user/UserSlice";
+import UserReducer from "./features/user/UserSlice";
 
-export default configureStore({
+export const store = configureStore({
     reducer: {
-       User: UserController
+       User: UserReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false
     })
 })
+
+export type RootState = ReturnType<typeof store.getState>
+
+export type AppDispatch = typeof store.dispatch
+

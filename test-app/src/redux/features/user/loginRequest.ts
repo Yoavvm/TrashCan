@@ -1,12 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { UserState } from './UserSlice';
+import { login, UserState } from './UserSlice';
+import type { RootState, AppDispatch } from '../../store'
 
-const loginRequest = createAsyncThunk<UserState>("loginRequest",
+
+const loginRequest = createAsyncThunk('loginRequest',
     async () => {
-        const response:any = await axios.get<UserState>('http://localhost:3001/exercises')
-        // console.log(response);
-        return response;
+        const response:any = await axios.get<{}>('http://localhost:3001/exercises')
+        console.log(response.data)
+        return response.data;
     }
     )
 
