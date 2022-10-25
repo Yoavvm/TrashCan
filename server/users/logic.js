@@ -10,15 +10,19 @@ const getAll = async () => {
 
 const login = async (loginPayload) => {
 
-    // const userData = await repo.login(loginPayload);
-    const userData = {data: loginPayload};
-
+    const userData = await repo.login(loginPayload);
     return userData;
+}
+
+const register = async (registerPayload) => {
+    const response = await repo.register(registerPayload)
+    return response;
 }
 
 
 module.exports = {
     getAll,
-    login
+    login,
+    register
 
 }

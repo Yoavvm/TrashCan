@@ -23,7 +23,20 @@ const login = async (req, res) => {
     }
 }
 
+const register = async (req, res) => {
+    try {
+        const response = await logic.register(req.body);
+        res.json(response);
+
+    } catch (error) {
+        console.log(error)
+        res.status(400).json(error);
+
+    }
+}
+
 module.exports = {
     getAll,
-    login
+    login,
+    register
 }

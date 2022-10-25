@@ -8,6 +8,7 @@ router.get('/exercises', exerciseController.getAll);
 
 
 router.post('/users', userController.login);
+router.put('/users', userController.register);
 
 
 module.exports = router;
