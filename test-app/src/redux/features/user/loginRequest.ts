@@ -5,12 +5,17 @@ import type { RootState, AppDispatch } from '../../store'
 
 
 const loginRequest = createAsyncThunk('loginRequest',
-    async () => {
-        const response:any = await axios.get<{}>('http://localhost:3001/exercises')
-        console.log(response.data)
+    async (loginPayload: LoginPayload) => {
+        const response: any = await axios.get<{}>('http://localhost:3001/exercises')
         return response.data;
     }
-    )
+)
+
 
 
 export default loginRequest;
+
+export type LoginPayload = {
+    userID: string,
+    userPassword: string
+}
