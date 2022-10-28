@@ -28,7 +28,7 @@ function App() {
       </div>
       <div>
         <button onClick={() => {handleLoginClick()}}>click to login</button>
-        <button onClick={() => {handleRegisterClick()}}>click to login</button>
+        <button onClick={() => {handleRegisterClick()}}>click to register</button>
       </div>
     </div>
   );
