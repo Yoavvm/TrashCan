@@ -1,35 +1,25 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'
-import loginRequest from './redux/features/user/loginRequest';
-import register from './redux/features/user/register';
-import { selectUser, UserState } from './redux/features/user/UserSlice';
-import { useAppDispatch } from './redux/Hooks';
+import Navbar from './components/navbar/Navbar';
+import { Routes, Route, Outlet, Link } from "react-router-dom";
+import Login from './components/login/Login';
+import Register from './components/register/Register';
+
 
 
 function App() {
-  const dispatch = useAppDispatch()
-  const userState = useSelector(state => state);
-  const [userID, setUserID] = useState('');
-  const [userPassword, setUserPassword] = useState('');
-
-  const handleLoginClick = () => dispatch(loginRequest({ userID, userPassword }))
-  const handleRegisterClick = () => dispatch(register({ userID, userPassword }))
 
 
   return (
     <div>
+      <Navbar/>
+      
+      <Routes>
+        <Route path='login' element={<Login/>}/>
+        <Route path='register' element={<Register/>}/>
 
-      <div>
-        <div>userid: <input onChange={(event) => setUserID(event.target.value)} type="text" /></div>
-        <div>
+      </Routes>
 
-          <div>userpassword: <input onChange={(event) => setUserPassword(event.target.value)} type="text" /></div>
-        </div>
-      </div>
-      <div>
-        <button onClick={() => {handleLoginClick()}}>click to login</button>
-        <button onClick={() => {handleRegisterClick()}}>click to register</button>
-      </div>
+
     </div>
   );
 }

@@ -16,6 +16,6 @@ const loginRequest = createAsyncThunk('loginRequest',
 export default loginRequest;
 
 export type LoginPayload = {
-    userID: string,
-    userPassword: string
+    email: string,
+    password: string
 }
