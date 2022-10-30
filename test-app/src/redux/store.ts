@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import UserReducer from "./features/user/UserSlice";
+import  ExercisesReducer  from "./features/exercises/ExerciseSlice";
 
 export const store = configureStore({
     reducer: {
-       User: UserReducer
+       User: UserReducer,
+       Exercises: ExercisesReducer
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
         serializableCheck: false

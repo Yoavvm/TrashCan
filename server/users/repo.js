@@ -1,13 +1,15 @@
-const {User} = require('../db/models');
+const { User } = require('../db/models');
 
-const login = async (loginPayload) => {
-    const userData = await User.find()
+const login = async ({ email, encryptedPassword }) => {
+    const userData = await User.find({ email, password: encryptedPassword })
     return userData;
 }
 
-const register = async (registerPayload) => {
-    await User.create(registerPayload);
-    return 'user succesfully created';
+const register = async ({ email, encryptedPassword }) => {
+    console.log(encryptedPassword)
+    const newUser = await User({ email, password: encryptedPassword })
+    await newUser.save()
+    return 'user created';
 }
 
 module.exports = {

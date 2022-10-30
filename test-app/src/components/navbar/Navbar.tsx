@@ -6,8 +6,9 @@ import '../navbar/Navbar.css';
 const Navbar = () => {
     return (
         <div className='container'>
-            <Link to="/login">Login</Link>
+            <Link to="/">Login</Link>
             <Link to="/register">Register</Link>
+            <Link to="/exercises">Exercises</Link>
         </div>
     )
 }

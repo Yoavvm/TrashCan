@@ -1,10 +1,10 @@
 const logic = require('./logic');
 
-const getAll = async (req, res) => {
+const getAllExercises = async (req, res) => {
 
     try {
-        const allExercises = await logic.getAll();
-        res.json({allExercises});
+        const allExercises = await logic.getAllExercises();
+        res.json(allExercises);
     } catch (error) {
         console.log(error)
         res.status(400).json({ message: 'something went wrong' });
@@ -25,6 +25,6 @@ const createExercise = async (req, res) => {
 }
 
 module.exports = {
-    getAll,
+    getAllExercises,
     createExercise
 }
