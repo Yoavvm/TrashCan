@@ -1,24 +1,26 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { FaBeer } from 'react-icons/fa';
+import { CgGym } from 'react-icons/cg';
+import { MdSwitchAccount } from 'react-icons/md';
 
 const Navbar = () => {
     return (
-        <div className='fixed top-0 left-0 h-screen w-16 flex flex-col bg-gray-900 text-white' >
-            <div>
-                <Link to="/">Login</Link>
-            </div>
-            <div>
-                <Link to="/register"><FaBeer/></Link>
-
-            </div>
-            <div>
-                <Link to="/exercises">Exercises</Link>
-
-            </div>
+        <div className='' >
+            <NavbarIcon icon={<MdSwitchAccount/>} destination="/login" />
+            <NavbarIcon icon={<CgGym/>} destination="/exercises" />
         </div>
     )
+}
+
+const NavbarIcon = ({icon, destination}:any) => {
+    return (
+        <div>
+            <Link className='relative flex items-center justify-center h-12 w-16 mx-auto' to={`${destination}`}>{icon}</Link>
+            
+        </div>
+    )
+
 }
 
 export default Navbar
