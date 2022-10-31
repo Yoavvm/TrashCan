@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux';
-import register from '../../redux/features/user/register';
-import { useAppDispatch } from '../../redux/Hooks';
+import register from '../redux/features/user/register';
+import { useAppDispatch } from '../redux/Hooks';
 
 const Register = () => {
 

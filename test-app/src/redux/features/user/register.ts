@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios';
-import { login, UserState } from './UserSlice';
-import type { RootState, AppDispatch } from '../../store'
+
 
 
 type RegisterPayload = {

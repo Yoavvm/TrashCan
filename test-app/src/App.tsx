@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import Navbar from './components/navbar/Navbar';
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-import Login from './components/login/Login';
-import Register from './components/register/Register';
-import Exercises from './components/exercises/Exercises';
+import Navbar from './components/Navbar';
+import { Routes, Route } from "react-router-dom";
+import Login from './components/Login';
+import Register from './components/Register';
+import Exercises from './components/Exercises';
 
 
 
